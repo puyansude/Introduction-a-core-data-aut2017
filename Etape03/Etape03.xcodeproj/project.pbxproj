@@ -305,6 +305,7 @@
 				B579CC4B1EBE5EA30086E183 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

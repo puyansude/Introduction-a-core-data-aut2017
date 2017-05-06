@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
+    var contexteDuModèleObjet: NSManagedObjectContext!
 
     override func viewDidLoad() {
-        @IBAction func viderEntitéCours(_ sender: Any) {
-        }
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        contexteDuModèleObjet = getContext()
+        afficherLesCours()
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +23,29 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func afficherLesCours() {
+        // Préparer la requête
+        let fetchRequest:NSFetchRequest<Cours> = Cours.fetchRequest()
+        let lesCours = try! contexteDuModèleObjet.fetch(fetchRequest)
+        
+        guard lesCours.count > 0 else {
+            print("🎭, il n'y a rien à afficher pour l'entité Cours")
+            return
+        }
+        
+        for cours in lesCours {
+            print (cours.numero!, cours.nom!)
+        }
+        //} catch {
+        //    print("🎭, il n'y a rien à afficher pour l'entité Cours")
+        //}
+        
+    } // afficherLesCours()
+    
+    func getContext () -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
 }
 
