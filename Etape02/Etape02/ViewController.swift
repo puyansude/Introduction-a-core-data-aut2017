@@ -9,13 +9,13 @@ import UIKit
 import CoreData
 
 class ViewController: UIViewController {
-    var contexteDeLaBD: NSManagedObjectContext!
+    var contexteDuModèleObjet: NSManagedObjectContext!
     
     @IBAction func viderEntitéCours(_ sender: Any) {
         print("viderEntitéCours")
-        let fetchRequest:NSFetchRequest<Cours> = Cours.fetchRequest()
-        let request = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
-        try! contexteDeLaBD.execute(request)
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = Cours.fetchRequest()
+        let request = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        try! contexteDuModèleObjet.execute(request)
         afficherLesCours()
     } // viderEntitéCours
     
@@ -23,15 +23,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // MARK: Obtenir le contexte de la BD
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate  {
-            contexteDeLaBD =  appDelegate.persistentContainer.viewContext
-        } else
-        { print("Erreur:  Impossible d'obtenir le contexte de la BD")
-            return
-        } // if let
-        
+        contexteDuModèleObjet =  getContext()
+            
         if entitéCoursVide() {
-            print("L'entité 'cours' sera initialisée...")
+            print("L'entité 'Cours' sera initialisée à partir de listeDesCours.plist")
             intialiserLesDonnéesDeLaBD()
         } else
         {
@@ -49,10 +44,10 @@ class ViewController: UIViewController {
         
         for cours in lesCours {
             print(cours)
-            let unCours = Cours(context: contexteDeLaBD)
+            let unCours = Cours(context: contexteDuModèleObjet)
             unCours.numero  = cours["numero"]!
             unCours.nom     = cours["nom"]
-            try! contexteDeLaBD.save()
+            try! contexteDuModèleObjet.save()
         }
         
         
@@ -62,7 +57,7 @@ class ViewController: UIViewController {
         // Préparer la requête
         let fetchRequest:NSFetchRequest<Cours> = Cours.fetchRequest()
         // Chercher les cours
-        let lesCours = try! contexteDeLaBD.fetch(fetchRequest)
+        let lesCours = try! contexteDuModèleObjet.fetch(fetchRequest)
         // Afficher les cours
         guard lesCours.count > 0 else {
             print("🎭, il n'y a rien à afficher pour l'entité Cours")
@@ -78,11 +73,15 @@ class ViewController: UIViewController {
         // Préparer la requête
         let fetchRequest:NSFetchRequest<Cours> = Cours.fetchRequest()
         // Chercher les cours
-        let lesCours = try! contexteDeLaBD.fetch(fetchRequest)
+        let lesCours = try! contexteDuModèleObjet.fetch(fetchRequest)
         
         return lesCours.count == 0 ? true : false
     } // entitéCoursVide
     
+    func getContext () -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
     
 }
 

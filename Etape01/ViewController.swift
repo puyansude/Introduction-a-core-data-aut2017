@@ -18,7 +18,7 @@ import CoreData
 class ViewController: UIViewController {
 
     // MARK: contenu 1
-    var contexteDeLaBD: NSManagedObjectContext!
+    var contexteDuModèleObjet: NSManagedObjectContext!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,22 +26,18 @@ class ViewController: UIViewController {
         // MARK: contenu 2 - Obtenir le contexte de la BD
         // Le contexte de la BD est disponible dans la classe 'AppDelegate.swift' du projet
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate  {
-            contexteDeLaBD =  appDelegate.persistentContainer.viewContext
+            contexteDuModèleObjet =  appDelegate.persistentContainer.viewContext
         } else
             { print("Erreur:  Impossible d'obtenir le contexte de la BD")
-                @IBAction func viderEntitéCours(_ sender: Any) {
-                }
-                @IBAction func viderEntitéCours(_ sender: Any) {
-                }
-                return
+              return
         } // if let
 
-        print("👻: ", contexteDeLaBD)
+        print("👻: ", contexteDuModèleObjet)
         
         //  MARK: 3 - Création d'un objet 'Cours' de type 'classe entité'
         //  Note: Xcode va automatiquement générer des classes
         //  à partir des entités du schéma de la BD du projet.
-        let unCours = Cours(context: contexteDeLaBD)
+        let unCours = Cours(context: contexteDuModèleObjet)
 
         // MARK: 4 - Renseigner les propriétés de l'objet
         unCours.numero  = "📚 482-ICD-1"
@@ -49,7 +45,7 @@ class ViewController: UIViewController {
 
         // MARK: 5 - Enregistrer l'objet dans la BD
         do  {
-                try contexteDeLaBD.save()
+                try contexteDuModèleObjet.save()
             }
         catch
                 let error as NSError
@@ -63,7 +59,7 @@ class ViewController: UIViewController {
         // 6.2 - exécuter la requête. Par defaut, la requete est 'select * from'
         do {
             // Création d'un tableau de cours, [Cours]
-            let lesCours = try contexteDeLaBD.fetch(fetchRequest)
+            let lesCours = try contexteDuModèleObjet.fetch(fetchRequest)
            
             // 6.3 - Afficher les cours
             for cours in lesCours {
@@ -76,7 +72,7 @@ class ViewController: UIViewController {
 
         // Ajouter des cours via une méthode
         ajouterDesCours(5)
-        let lesCours = try! contexteDeLaBD.fetch(fetchRequest)
+        let lesCours = try! contexteDuModèleObjet.fetch(fetchRequest)
         
         // Afficher les cours
         print("----------------------------------------------")
@@ -96,13 +92,13 @@ extension ViewController {
         for i in 2...nombre + 1 {
             // print("i = \(i)")
             // Créer un cours
-            let unCours = Cours(context: contexteDeLaBD)
+            let unCours = Cours(context: contexteDuModèleObjet)
             unCours.numero  = "📕 482-ICD-\(i)"
             unCours.nom     = "Introduction à core data niveau \(i)"
             
             // Enregistrer l'objet dans la BD
             do  {
-                try contexteDeLaBD.save()
+                try contexteDuModèleObjet.save()
             }
             catch
                 let error as NSError
