@@ -15,6 +15,16 @@
 		B579CBDC1EBE4A3C0086E183 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B579CBDA1EBE4A3C0086E183 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B579CC291EBE5E020086E183 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B579CC251EBE5E010086E183 /* Etape02.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B579CC0D1EBE5E010086E183;
+			remoteInfo = Etape02;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		B579CBCB1EBE4A3C0086E183 /* Etape01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Etape01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B579CBCE1EBE4A3C0086E183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +34,7 @@
 		B579CBD81EBE4A3C0086E183 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B579CBDB1EBE4A3C0086E183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B579CBDD1EBE4A3C0086E183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B579CC251EBE5E010086E183 /* Etape02.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Etape02.xcodeproj; path = Etape02/Etape02.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +53,7 @@
 			children = (
 				B579CBCD1EBE4A3C0086E183 /* Etape01 */,
 				B579CBCC1EBE4A3C0086E183 /* Products */,
+				B579CC251EBE5E010086E183 /* Etape02.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,6 +77,14 @@
 				B579CBD51EBE4A3C0086E183 /* Etape01.xcdatamodeld */,
 			);
 			path = Etape01;
+			sourceTree = "<group>";
+		};
+		B579CC261EBE5E010086E183 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B579CC2A1EBE5E020086E183 /* Etape02.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -114,12 +134,28 @@
 			mainGroup = B579CBC21EBE4A3C0086E183;
 			productRefGroup = B579CBCC1EBE4A3C0086E183 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B579CC261EBE5E010086E183 /* Products */;
+					ProjectRef = B579CC251EBE5E010086E183 /* Etape02.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B579CBCA1EBE4A3C0086E183 /* Etape01 */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B579CC2A1EBE5E020086E183 /* Etape02.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Etape02.app;
+			remoteRef = B579CC291EBE5E020086E183 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B579CBC91EBE4A3C0086E183 /* Resources */ = {
