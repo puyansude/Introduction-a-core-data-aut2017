@@ -13,6 +13,7 @@
 		B579CC191EBE5E010086E183 /* Etape02.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B579CC171EBE5E010086E183 /* Etape02.xcdatamodeld */; };
 		B579CC1B1EBE5E010086E183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B579CC1A1EBE5E010086E183 /* Assets.xcassets */; };
 		B579CC1E1EBE5E010086E183 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B579CC1C1EBE5E010086E183 /* LaunchScreen.storyboard */; };
+		B579CC541EBE60B00086E183 /* listeDesCours.plist in Resources */ = {isa = PBXBuildFile; fileRef = B579CC531EBE60B00086E183 /* listeDesCours.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B579CC1A1EBE5E010086E183 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B579CC1D1EBE5E010086E183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B579CC1F1EBE5E010086E183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B579CC531EBE60B00086E183 /* listeDesCours.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = listeDesCours.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		B579CC0F1EBE5E010086E183 /* Etape02 */ = {
 			isa = PBXGroup;
 			children = (
+				B579CC521EBE60900086E183 /* Ressources */,
 				B579CC101EBE5E010086E183 /* AppDelegate.swift */,
 				B579CC121EBE5E010086E183 /* ViewController.swift */,
 				B579CC141EBE5E010086E183 /* Main.storyboard */,
@@ -65,6 +68,14 @@
 				B579CC171EBE5E010086E183 /* Etape02.xcdatamodeld */,
 			);
 			path = Etape02;
+			sourceTree = "<group>";
+		};
+		B579CC521EBE60900086E183 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				B579CC531EBE60B00086E183 /* listeDesCours.plist */,
+			);
+			name = Ressources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +139,7 @@
 			files = (
 				B579CC1E1EBE5E010086E183 /* LaunchScreen.storyboard in Resources */,
 				B579CC1B1EBE5E010086E183 /* Assets.xcassets in Resources */,
+				B579CC541EBE60B00086E183 /* listeDesCours.plist in Resources */,
 				B579CC161EBE5E010086E183 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

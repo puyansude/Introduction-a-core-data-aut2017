@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>numero</key>
+		<string>482-001</string>
+		<key>nom</key>
+		<string>Programmation multimédia 1</string>
+	</dict>
+    <dict>
+        <key>numero</key>
+        <string>482-002</string>
+        <key>nom</key>
+        <string>Programmation multimédia 2</string>
+    </dict>
+    <dict>
+        <key>numero</key>
+        <string>482-003</string>
+        <key>nom</key>
+        <string>Production multimédia sur support</string>
+    </dict>
+    <dict>
+        <key>numero</key>
+        <string>482-004</string>
+        <key>nom</key>
+        <string>Production d'une application en ligne</string>
+    </dict>
+    <dict>
+        <key>numero</key>
+        <string>482-005</string>
+        <key>nom</key>
+        <string>Programmation Web 1</string>
+    </dict>    
+</array>
+</plist>

@@ -29,6 +29,10 @@ class ViewController: UIViewController {
             contexteDeLaBD =  appDelegate.persistentContainer.viewContext
         } else
             { print("Erreur:  Impossible d'obtenir le contexte de la BD")
+                @IBAction func viderEntitéCours(_ sender: Any) {
+                }
+                @IBAction func viderEntitéCours(_ sender: Any) {
+                }
                 return
         } // if let
 
