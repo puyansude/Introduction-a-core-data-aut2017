@@ -1,10 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Cours" representedClassName="Cours" syncable="YES" codeGenerationType="class">
+    <entity name="Competence" representedClassName="Competence" syncable="YES" codeGenerationType="class">
+        <attribute name="nbHeures" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="numero" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numero" attributeType="String" syncable="YES"/>
+        <attribute name="referentiel" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Cours" representedClassName="Cours" syncable="YES" codeGenerationType="class">
+        <attribute name="nbHeures" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numero" attributeType="String" syncable="YES"/>
+        <relationship name="competences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Competence" syncable="YES"/>
+        <relationship name="preRequis" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Cours" syncable="YES"/>
+    </entity>
+    <entity name="Etudiant" representedClassName="Etudiant" syncable="YES" codeGenerationType="class">
+        <attribute name="matricule" attributeType="String" syncable="YES"/>
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prenom" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="listeDesCours" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Cours" syncable="YES"/>
+        <relationship name="listeDesNotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" syncable="YES"/>
+    </entity>
+    <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
+        <attribute name="matriculeEtudiant" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="numeroCours" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Cours" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Competence" positionX="-335" positionY="-216" width="128" height="105"/>
+        <element name="Cours" positionX="-144" positionY="-216" width="128" height="118"/>
+        <element name="Etudiant" positionX="54" positionY="-216" width="128" height="28"/>
+        <element name="Note" positionX="243" positionY="-216" width="128" height="90"/>
     </elements>
 </model>
